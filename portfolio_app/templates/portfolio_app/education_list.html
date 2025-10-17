@@ -1,0 +1,38 @@
+{% extends 'portfolio_app/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="section-title">Academic Journey</h2>
+<ul class="clean-list education-list-grid">
+    {% for edu in educations %}
+        <li class="edu-card">
+            <div class="edu-item">
+                {% if edu.image %}
+                    <a href="{{ edu.website }}" target="_blank" rel="noopener noreferrer" class="institute-link">
+                        <img src="{{ edu.image.url }}" alt="{{ edu.institution }} Logo" class="institute-image">
+                    </a>
+                {% else %}
+                    <i class="fa-solid fa-building-columns default-institute-icon"></i>
+                {% endif %}
+
+                <div class="edu-text">
+                    <p class="edu-degree">
+                        {% if edu.website %}
+                            <a href="{{ edu.website }}" target="_blank" rel="noopener noreferrer">{{ edu.degree }}</a>
+                        {% else %}
+                            {{ edu.degree }}
+                        {% endif %}
+                    </p>
+                    <p class="edu-institution">{{ edu.institution }}</p>
+                    <em class="edu-years">
+                        {{ edu.start_year }} &ndash; {% if edu.end_year %}{{ edu.end_year }}{% else %}Present{% endif %}
+                    </em>
+                    <p class="edu-description">{{ edu.description }}</p>
+                </div>
+            </div>
+        </li>
+    {% empty %}
+        <li class="empty-state">No education records found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "portfolio_app/base.html" %}
+{% load static %}
+
+{% block content %}
+<h2 class="section-title">Featured Projects</h2>
+<div class="projects-grid">
+    {% for project in projects %}
+        <div class="project-card">
+            {% if project.image %}
+                <img src="{{ project.image.url }}" alt="{{ project.title }} Screenshot" class="project-image">
+            {% else %}
+                <i class="fa-solid fa-code default-project-icon"></i>
+            {% endif %}
+
+            <div class="project-info">
+                <h3 class="project-title">{{ project.title }}</h3>
+                <p class="project-description">{{ project.description }}</p>
+                <p class="project-tech"><strong>Tech Stack:</strong> {{ project.technology }}</p>
+                
+                <div class="project-links">
+                    {% if project.demo_url %}
+                        <a href="{{ project.demo_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> See Live
+                        </a>
+                    {% endif %}
+                    </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="empty-state-grid">No projects found.</div>
+    {% endfor %}
+</div>
+{% endblock %}

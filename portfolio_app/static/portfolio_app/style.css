@@ -1,0 +1,446 @@
+/* Color Palette */
+:root {
+    --color-background: #121212; /* Deep dark background */
+    --color-surface: #1e1e1e;    /* Slightly lighter surface for cards/sections */
+    --color-primary: #00bcd4;    /* A modern, professional teal/cyan for highlights (a common dev color) */
+    --color-text-main: #e0e0e0;  /* Light grey for main text */
+    --color-text-secondary: #a0a0a0; /* Darker grey for secondary text (dates, descriptions) */
+    --color-border: #333;        /* Subtle border color */
+    --font-stack: 'Inter', sans-serif;
+    --font-stack-mono: 'Roboto Mono', monospace;
+}
+
+/* Base Styles */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-main);
+    font-family: var(--font-stack);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #4dd0e1; /* Lighter shade of primary */
+}
+
+h1, h2, h3 {
+    font-family: var(--font-stack);
+    margin-top: 0;
+}
+
+h2.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* Layout */
+.main-content {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.clean-list {
+    list-style: none;
+    padding: 0;
+}
+
+.empty-state, .empty-state-grid {
+    text-align: center;
+    padding: 40px;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    border: 1px dashed var(--color-border);
+    border-radius: 8px;
+}
+
+/* --- Header & Navigation --- */
+.main-header {
+    background-color: var(--color-surface);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.header-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-stack-mono);
+    font-size: 1.5rem;
+    color: var(--color-text-main);
+    font-weight: 600;
+}
+
+.logo .cursor {
+    color: var(--color-primary);
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--color-primary); }
+}
+
+.main-nav a {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    padding: 10px 15px;
+    margin: 0 5px;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+}
+
+.main-nav a:hover {
+    color: var(--color-primary);
+    background-color: rgba(0, 188, 212, 0.1);
+}
+
+.main-nav a i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+/* --- Landing Page --- */
+.landing-section {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-card {
+    background-color: var(--color-surface);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    max-width: 700px;
+    width: 100%;
+}
+
+.profile-photo-wrapper {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--color-primary);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.landing-name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.landing-title {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.landing-intro {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 30px;
+}
+
+.social-links a {
+    font-size: 1.8rem;
+    margin: 0 15px;
+    display: inline-block;
+    color: var(--color-text-secondary);
+}
+
+.social-links a:hover {
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* --- Project List --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--color-surface);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.default-project-icon {
+    display: block;
+    font-size: 4rem;
+    text-align: center;
+    padding: 50px 0;
+    color: var(--color-primary);
+    background-color: #2a2a2a;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.project-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.project-tech {
+    font-family: var(--font-stack-mono);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.project-links a {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.btn-primary:hover {
+    background-color: #4dd0e1;
+    color: var(--color-surface);
+}
+
+/* --- Experience List --- */
+.experience-list li {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--color-surface);
+    border-left: 5px solid var(--color-primary);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.exp-role {
+    font-size: 1.4rem;
+    color: var(--color-text-main);
+    margin: 0;
+}
+
+.exp-company {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.exp-duration {
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.exp-duration i {
+    margin-right: 5px;
+}
+
+.exp-description {
+    margin-top: 10px;
+    color: var(--color-text-secondary);
+}
+
+/* --- Education List --- */
+.education-list-grid li {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.edu-item {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.institute-image {
+    width: 150px; /* Reduced size for better layout */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.institute-image:hover {
+    transform: scale(1.05);
+}
+
+.default-institute-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+    width: 150px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.edu-text {
+    flex-grow: 1;
+}
+
+.edu-degree {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.edu-institution {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.edu-years {
+    display: block;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.edu-description {
+    color: var(--color-text-secondary);
+}
+
+/* --- Footer --- */
+.main-footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-top: 50px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .main-nav {
+        margin-top: 15px;
+    }
+    .main-nav a {
+        padding: 5px 10px;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-image {
+        height: 150px;
+    }
+    .landing-name {
+        font-size: 2.5rem;
+    }
+    .landing-title {
+        font-size: 1.2rem;
+    }
+    .edu-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .institute-image, .default-institute-icon {
+        width: 100%;
+        max-width: 250px;
+    }
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .exp-company {
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 0 10px;
+    }
+    .main-nav a {
+        font-size: 0.85rem;
+        margin: 0 2px;
+    }
+    .landing-section {
+        min-height: auto;
+    }
+    .profile-card {
+        padding: 20px;
+    }
+    .profile-photo-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+}

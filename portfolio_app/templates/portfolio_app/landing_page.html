@@ -1,0 +1,25 @@
+{% extends 'portfolio_app/base.html' %}
+{% load static %}
+{% block content %}
+<section class="landing-section">
+    <div class="profile-card">
+        <div class="profile-photo-wrapper">
+            <img src="{% static 'portfolio_app/photos/profile_photo.JPG' %}" alt="Basit Shameem Profile Photo" class="profile-photo">
+        </div>
+        <h1 class="landing-name">Basit Shameem</h1>
+        <p class="landing-title">Full-Stack Developer | Python/Django Specialist</p>
+        
+        <p class="landing-intro">
+            Building robust and scalable web applications with a focus on clean code and user experience. 
+            I transform complex problems into elegant, maintainable solutions. 
+            Let's create something impactful together.
+        </p>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/basit-shameem-0a8907188/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/baBa0102" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:your.email@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </div>
+</section>
+{% endblock %}

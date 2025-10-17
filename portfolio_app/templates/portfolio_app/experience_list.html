@@ -1,0 +1,24 @@
+{% extends 'portfolio_app/base.html' %}
+
+{% block content %}
+<h2 class="section-title">Professional Experience</h2>
+<ul class="clean-list experience-list">
+    {% for exp in experiences %}
+        <li class="exp-card">
+            <div class="exp-header">
+                <h3 class="exp-role">{{ exp.role }}</h3>
+                <span class="exp-company">{{ exp.company }}</span>
+            </div>
+            <p class="exp-duration">
+                <i class="fa-regular fa-calendar"></i>
+                {{ exp.start_date }} {% if exp.end_date %} &ndash; {{ exp.end_date }}{% else %} &ndash; Present{% endif %}
+            </p>
+            <div class="exp-description-container">
+                <p class="exp-description">{{ exp.description }}</p>
+            </div>
+        </li>
+    {% empty %}
+        <li class="empty-state">No experience records found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

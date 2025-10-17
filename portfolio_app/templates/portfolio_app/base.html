@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basit Shameem | Professional Developer Portfolio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio_app/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="logo">Basit.dev<span class="cursor">_</span></h1>
+            <nav class="main-nav">
+                <a href="{% url 'landing_page' %}" class="nav-link home"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="{% url 'project_list' %}" class="nav-link projects"><i class="fa-solid fa-laptop-code"></i> Projects</a>
+                <a href="{% url 'experience_list' %}" class="nav-link experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+                <a href="{% url 'education_list' %}" class="nav-link education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+                </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="main-footer">
+        <p>&copy; {% now "Y" %} Basit Shameem | Crafted with Django & Passion</p>
+    </footer>
+</body>
+</html>
